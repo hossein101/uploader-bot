@@ -20,7 +20,9 @@ python up*
 ```
 🔺 در اخر هم ربات رو استارت کنید ❤💪
 
-[-👤DeVeLoPeR](https://telegram.me/MutePuker)
+[-🙍DeveLoper](https://telegram.me/MosyDev)
+
+[-👤creator](https://telegram.me/MutePuker)
 
 [-💬RePoRtS](https://telegram.me/MutePukerBot)
 
