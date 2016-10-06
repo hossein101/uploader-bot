@@ -18,8 +18,8 @@ python up*
 ```
 🔺 در اخر هم ربات رو استارت کنید ❤💪
 
-[-👤DeVeLoPeR](https://telegram.me/MutePuker]
+[-👤DeVeLoPeR](https://telegram.me/MutePuker)
 
-[-💬RePoRtS](https://telegram.me/MutePukerBot]
+[-💬RePoRtS](https://telegram.me/MutePukerBot)
 
-[-🔊channel](https://telegram.me/MuteTeam]
+[-🔊channel](https://telegram.me/MuteTeam)
