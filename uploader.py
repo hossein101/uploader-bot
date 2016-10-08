@@ -18,7 +18,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 redis = r.StrictRedis(host='localhost', port=6379, db=0,decode_responses=True)
-token = "TOKEN"
+token = "187882019:AAG0iIZXUOCtjz_1-hHPDW3UXh83NvhKdG4"
 -- YOUR TOKEB HERE :[
 bot = telebot.TeleBot(token)
 opizo_email = 'besthkrboy@gmail.com'
@@ -38,7 +38,7 @@ def m(m):
 
 @bot.message_handler(commands=['stats'])
 def m(m):
-        if m.from_user.id == 238773538 or m.from_user.id == 211068405:
+        if m.from_user.id == 262171688 or m.from_user.id == 147205847:
           file = redis.scard('files')
           msm = redis.scard('memebers')
           em = redis.scard('msgs')
