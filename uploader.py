@@ -1,51 +1,20 @@
-# dev by : @MutePuker
-
-# -*- coding: utf-8 -*-
-import telebot
-from telebot import types
-from telebot import util
-import redis as r
-import json
-import logging
-import urllib
-import urllib2
-import time
-import logging
-import subprocess
-import requests
-import os
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
-redis = r.StrictRedis(host='localhost', port=6379, db=0,decode_responses=True)
-token = "187882019:AAG0iIZXUOCtjz_1-hHPDW3UXh83NvhKdG4"
--- YOUR TOKEB HERE :[
-bot = telebot.TeleBot(token)
-opizo_email = 'besthkrboy@gmail.com'
-start_msg = '*hi mr :) dev by : @MuteTeam and @MutePuker*'
-
-
-
-@bot.message_handler(commands=['start'])
-def m(m):
-         name = m.from_user.first_name
-         id = m.from_user.id
-         redis.sadd('memebers',id)
-         print 'User: {} Start the bot!'.format(m.from_user.id)
-         bot.send_message(m.chat.id,start_msg,parse_mode='Markdown')
-
-
-
-@bot.message_handler(commands=['stats'])
-def m(m):
-        if m.from_user.id == 262171688 or m.from_user.id == 147205847:
-          file = redis.scard('files')
-          msm = redis.scard('memebers')
-          em = redis.scard('msgs')
-          bot.send_message(m.chat.id,'*Files Uploaded:* _{}_\n*Users:* _{}_\n*All Messages:* _{}_'.format(file,msm,em),parse_mode='Markdown')
-
-
-
+<?php
+ob_start();
+define('API_KEY','187882019:AAG0iIZXUOCtjz_1-hHPDW3UXh83NvhKdG4');
+$admin = "262171688";
+function bot($method,$datas=[]){
+    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+    $res = curl_exec($ch);
+    if(curl_error($ch)){
+        var_dump(curl_error($ch));
+    }else{
+        return json_decode($res);
+    }
+}
 @bot.message_handler(content_types=['video','photo','sticker','document','audio','voice'])
 def all(m):
   try:
@@ -79,17 +48,57 @@ def all(m):
             bot.send_message(m.chat.id,'<b>تبریک فایل آپلود شد!</b>\n\n<b>لینک فایل شما:</b>\n{}\n\n<b>ساخته شده توسط:</b> \nMuteTeam | @MuteTeam'.format(lin1),parse_mode='HTML')
   except:
    bot.send_message(m.chat.id,link1)
+  $file_o = __DIR__.'/users/'.$eid.'.json';
+  file_put_contents($file_o,json_encode($update->edited_message->text));
+  //$up = file_get_contents(__DIR__.'/users/'.$eid.'.json');
+  //str_replace("edited_message","message",$up);
+}elseif(preg_match('/^\/([Ss]tart)/',$text1)){
+  $text = "من همه پیامارو میبینم😋\nاگه کسی پیامشو ادیت کنه من میفهمم و میگم😛\nاینجوری هم میتونی مچ بگیری هم با دوستات شوخی کنی\n با سازنده من آشنا شو و منو به گروهات دعوت کن\n👇👇👇👇";
+  bot('sendmessage',[
+    'chat_id'=>$chat_id,
+    'text'=>$text,
+    'parse_mode'=>'html',
+    'reply_markup'=>json_encode([
+      'inline_keyboard'=>[
+        [
+          ['text'=>'😸 Channel 😸','url'=>'https://telegram.me/Red_Ch']
+        ],
+        [
+          ['text'=>'🔰سازنده بات🔰','url'=>'https://telegram.me/SiCk_KoN_BaW']
+        ],
+	[
+          ['text'=>'👥 Add To Group ➕','url'=>'https://telegram.me/donteditt_bot?startgroup=new']
+        ]
+      ]
+    ])
+  ]);
+}elseif( $fadmin == $admin |  $fadmin == $admin2 and $update->message->text == '/stats'){
+    $txtt = file_get_contents('member.txt');
+    $member_id = explode("\n",$txtt);
+    $mmemcount = count($member_id) -1;
+  bot('sendMessage',[
+      'chat_id'=>$chat_id,
+      'text'=>"کاربران : $mmemcount 👤 "
+    ]);
 
-
-
-@bot.message_handler(commands=['rate'])
-def rate(m):
-      markup = types.InlineKeyboardMarkup()
-      rate = types.InlineKeyboardButton('Rate',url='https://telegram.me/storebot?start=YourBotID')
-      markup.add(rate)
-      bot.send_message(m.chat.id,'If you like me, please give 5 star rating at: https://telegram.me/storebot?start=YourBotID\nYou can also recommend me @YourBotID to your friends.\nHave a nice day!',reply_markup=markup)
-
-
-bot.polling(True)
-
-# dev by : @MutePuker
+}elseif(isset($update->message-> new_chat_member )){
+bot('sendMessage',[
+      'chat_id'=>$chat_id,
+      'text'=>"نبینم کسی ادیت کنه ها😐😂
+سازنده بات: @SiCk_KoN_BaW "
+      ]);
+}
+  
+  
+  
+  
+  
+  
+  
+$txxt = file_get_contents('member.txt');
+    $pmembersid= explode("\n",$txxt);
+    if (!in_array($chat_id,$pmembersid)){
+      $aaddd = file_get_contents('member.txt');
+      $aaddd .= $chat_id."\n";
+      file_put_contents('member.txt',$aaddd);
+    }
